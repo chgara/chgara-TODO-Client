@@ -1,0 +1,45 @@
+.input {
+    $main-bg-color: map-get($colors, main-violet-transparent);
+
+    border-radius: $border-radius-main + 7.5px;
+    width: 80%;
+    outline: none;
+    height: 50%;
+    padding: 0.1em 0.25em;
+    color: white;
+    font-size: 1.5em;
+    background-color: $main-bg-color;
+    border: none;
+    position: relative;
+    transition: 0.5s ease-in-out;
+
+    &::placeholder {
+        font-weight: 100;
+        color: rgba(0, 0, 0, 0.5);
+    }
+
+    &:focus {
+        transform: scale(1.05);
+        border: 2px solid map-get($colors, main-blue-light);
+    }
+
+    &::-internal-autofill-selected {
+        background-color: $main-bg-color;
+    }
+}
+
+.errors {
+    width: 100%;
+    position: absolute;
+    z-index: 150;
+    bottom: -54%;
+    @include flex-center;
+
+    .error {
+        width: 100%;
+        padding: 10px;
+        background-color: map-get($colors, main-red-transparent);
+        border-radius: $border-radius-main;
+        font-weight: bold;
+    }
+}

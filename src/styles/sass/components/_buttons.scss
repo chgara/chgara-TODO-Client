@@ -1,0 +1,86 @@
+$btn-padding: 0.4em;
+.btn {
+    border: none;
+    cursor: pointer;
+    padding: $btn-padding;
+    transition: 0.5s ease-in-out;
+
+    &.btn {
+        &-submit {
+            font-size: 1.2em;
+            margin: $grandient-border-scale/25;
+            @include gradient-border(green-blue);
+            position: relative;
+            border-radius: $border-radius-normal;
+            z-index: 100;
+
+            &::after {
+                content: '';
+                background-color: map-get($map: $colors, $key: main-violet);
+                position: relative;
+                border-radius: $border-radius-normal;
+                width: 100%;
+                height: 100%;
+                position: absolute;
+                top: 0;
+                left: 0;
+                z-index: -1;
+            }
+
+            &:hover {
+                transform: scale(1.1);
+            }
+        }
+
+        &-add {
+            $main-color: map-get(
+                $map: $colors,
+                $key: main-green,
+            );
+            $main-color-transparent: map-get(
+                $map: $colors,
+                $key: main-green-transparent,
+            );
+
+            background-color: $main-color;
+            border-radius: $border-radius-high;
+            width: 40px;
+            height: 40px;
+            @include flex-center;
+            position: relative;
+            margin: 0;
+
+            & > p {
+                color: white;
+                font-size: 2.5em;
+                font-weight: bold;
+                position: absolute;
+                bottom: -15%;
+            }
+
+            @include pseudo-text('Add', $main-color-transparent, -50%, -75%);
+        }
+
+        &-delete {
+            $main-color: map-get($colors, main-red);
+            $main-color-transparent: map-get($colors, main-red-transparent);
+
+            background-color: $main-color;
+            width: 40px;
+            height: 40px;
+            @include flex-center;
+            position: relative;
+            margin: 0;
+
+            & > p {
+                color: white;
+                font-size: 2.5em;
+                font-weight: 100;
+                position: absolute;
+                bottom: -15%;
+            }
+
+            @include pseudo-text('Delete', $main-color-transparent, -90%, -75%);
+        }
+    }
+}

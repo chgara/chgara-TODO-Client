@@ -1,0 +1,176 @@
+$form-width: 100%;
+.Auth {
+    width: 100vw;
+    height: 100vh;
+    min-height: $min-heigth;
+    max-width: 100vw;
+    max-height: 100vh;
+    overflow: hidden;
+    background-color: white;
+    @include background-image('../../svg/Background.svg');
+    z-index: -10;
+
+    @include flex-center;
+
+    main {
+        width: 40%;
+        height: 90%;
+        .login-nav {
+            @include background-image('../../svg/Auth-nav-background.svg');
+        }
+        .register-nav {
+            @include background-image('../../svg/Auth-nav-background2.svg');
+        }
+        $pixels: 1200px;
+        $width: 45%;
+        $height: 90%;
+        @for $var from 1 to 10 {
+            $width: $width + 5.5;
+            $height: $height + 1;
+            @media screen and (max-width: $pixels) {
+                width: $width;
+            }
+            $pixels: $pixels - 100px;
+        }
+        nav {
+            $width: 52%;
+            width: $width;
+            margin: auto;
+            $heigth: 10%;
+            height: $heigth;
+            @include flex-center;
+
+            @media screen and (max-width: 750px) {
+                width: $width + 2%;
+            }
+            @media screen and (max-width: 670px) {
+                width: $width + 5%;
+                height: $heigth - 0.5;
+            }
+            @media screen and (max-width: 570px) {
+                width: $width + 7%;
+                height: $heigth - 1;
+            }
+            @media screen and (max-width: 490px) {
+                width: $width + 10%;
+                height: $heigth - 1.5;
+            }
+            @media screen and (max-width: 440px) {
+                width: $width + 20%;
+                height: $heigth - 2;
+            }
+            @media screen and (max-width: 380px) {
+                width: $width + 27%;
+                height: $heigth - 0.75%;
+            }
+            .link-box {
+                width: 50%;
+                height: 100%;
+                @include flex-center;
+
+                a {
+                    font-size: 1.5em;
+                    text-decoration: none;
+                    color: black;
+                    font-weight: bolder;
+                    display: inline-block;
+                    width: 90%;
+                    height: 100%;
+                    @include flex-center;
+                }
+            }
+        }
+
+        form {
+            width: 100%;
+            height: 90%;
+            border: 4px solid map-get($colors, main-violet);
+            border-top: 4px solid map-get($colors, main-blue-light);
+            border-left: 4px solid map-get($colors, main-blue-light);
+            background-color: white;
+            border-radius: 50px;
+            position: relative;
+
+            .form {
+                &-head {
+                    width: 100%;
+                    height: 15%;
+                    @include flex-center;
+
+                    &-title {
+                        font-size: 2em;
+                        font-weight: 600;
+                    }
+                }
+
+                &-inputs {
+                    width: 100%;
+                    @include flex-justify-center;
+                    flex-wrap: wrap;
+
+                    .input-group {
+                        $width: 70%;
+                        position: relative;
+                        width: $width;
+                        margin-bottom: 10%;
+                        .input-label {
+                            width: 100%;
+                            display: block;
+                            margin-bottom: 2.5%;
+                            font-size: 1.5em;
+                            font-weight: 300;
+                            @include flex-align-center;
+
+                            span {
+                                margin-right: 2.5%;
+                                font-size: 1.5em;
+                            }
+                        }
+
+                        .input {
+                            width: 100%;
+                        }
+
+                        $pixels: 1200px;
+                        $width: 70%;
+                        @for $var from 1 to 10 {
+                            $width: $width + 2;
+                            @media screen and (max-width: $pixels) {
+                                width: $width;
+                            }
+                            $pixels: $pixels - 100px;
+                        }
+                    }
+                }
+                &-submit-box {
+                    width: 100%;
+                    display: flex;
+                    justify-content: center;
+                    position: absolute;
+                    bottom: -4%;
+                }
+            }
+        }
+    }
+    .animations {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        z-index: 1000;
+        width: 100vw;
+        height: 100vh;
+        cursor: pointer;
+        @include flex-center;
+
+        &.animation- {
+            &fail {
+                background-color: map-get($colors, main-red-transparent);
+            }
+            &success {
+                background-color: map-get($colors, main-green-transparent);
+            }
+        }
+    }
+}

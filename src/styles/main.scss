@@ -1,0 +1,16 @@
+//Importing bases styles and resets
+@import './sass/base/reset', './sass/base/typography';
+
+//Importing all needed functionalitis
+@import './sass/abstracts/variables', './sass/abstracts/mixins.scss',
+    './sass/abstracts/functions', './sass/abstracts/variables';
+
+//Importing all the components
+@import './sass/components/icons', './sass/components/buttons',
+    './sass/components/inputs', './sass/components/navBar';
+
+//Importing the layaout elements
+@import './sass/layout/headers';
+
+//Importing the pages styles
+@import './sass/pages/app', './sass/pages/auth', './sass/pages/home';

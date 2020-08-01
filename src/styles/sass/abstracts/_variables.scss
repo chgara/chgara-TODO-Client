@@ -1,0 +1,43 @@
+$transparency: 0.75;
+$colors: (
+    main-violet: rgb(133, 119, 220),
+    main-violet-transparent: rgba(133, 119, 220, $transparency),
+    main-red: rgb(220, 119, 119),
+    main-red-transparent: rgba(220, 119, 119, $transparency),
+    main-green: rgb(119, 220, 159),
+    main-green-transparent: rgba(119, 220, 159, $transparency),
+    main-blue-dark: rgb(89, 176, 234),
+    main-blue-dark-transparent: rgba(89, 176, 234, $transparency),
+    main-blue-light: rgb(97, 218, 251),
+    main-blue-light-transparent: rgba(97, 218, 251, $transparency),
+    main-yellow: rgb(220, 191, 119),
+    main-yellow-transparent: rgba(220, 191, 119, $transparency),
+);
+$gradients: (
+    green-blue:
+        linear-gradient(
+            0deg,
+            map-get($colors, main-blue-light),
+            map-get($colors, main-green) 100%
+        ),
+    blue-green:
+        linear-gradient(
+            0deg,
+            map-get($colors, main-green),
+            map-get($colors, main-blue-light) 100%
+        ),
+    blue-violet:
+        linear-gradient(
+            0deg,
+            map-get($colors, main-blue-light),
+            map-get($colors, main-green) 100%
+        ),
+);
+.hidden {
+    display: none;
+}
+$grandient-border-scale: 7.5%;
+$border-radius-normal: 20px;
+$border-radius-high: 100%;
+$border-radius-main: 8px;
+$min-heigth: 600px;

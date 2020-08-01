@@ -1,0 +1,70 @@
+@mixin flex-center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+@mixin flex-align-center {
+    display: flex;
+    align-items: center;
+}
+@mixin flex-justify-center {
+    display: flex;
+    justify-content: center;
+}
+@mixin gradient-border($color) {
+    &::before {
+        content: '';
+        position: absolute;
+        right: -($grandient-border-scale/2);
+        bottom: -($grandient-border-scale);
+        width: 100% + $grandient-border-scale;
+        height: 100% + ($grandient-border-scale * 2);
+        transition: 1s ease-in-out;
+        background-color: map-get($map: $colors, $key: main-red);
+
+        @if $color == green-blue {
+            background-image: map-get($gradients, green-blue);
+        } @else if $color == blue-green {
+            background-image: map-get($gradients, blue-green);
+        } @else if $color ==blue-violet {
+            background-image: map-get($gradients, blue-violet);
+        } @else {
+            @error "Unknown direction #{$color}.";
+        }
+
+        border-radius: $border-radius-normal;
+        box-shadow: 2px 4px 9px #000000;
+        z-index: -1;
+    }
+    &:hover::before {
+        @if $color == green-blue {
+            background-image: map-get($gradients, blue-green);
+        } @else if $color == blue-green {
+            background-image: map-get($gradients, green-blue);
+        } @else if $color ==blue-violet {
+            background-image: map-get($gradients, blue-violet);
+        } @else {
+            @error "Unknown direction #{$color}.";
+        }
+    }
+}
+
+@mixin pseudo-text($message, $color, $left, $top) {
+    &:hover ::after {
+        content: $message;
+        padding: 5px;
+        background-color: $color;
+        position: absolute;
+        top: $top;
+        left: $left;
+        border-radius: $border-radius-main;
+        font-size: 0.5em;
+    }
+}
+
+@mixin background-image($path) {
+    background-image: url($path);
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
