@@ -6,7 +6,6 @@ class Http implements Icall {
 
     constructor(url: string) {
         this.url = url;
-        this.url = url;
     }
 
     public async post(

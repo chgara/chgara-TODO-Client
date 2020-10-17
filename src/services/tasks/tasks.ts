@@ -20,8 +20,9 @@ class Services {
     public static getInstance(): Services {
         if (!Services.instance) {
             const cookies: Cookies = new Cookies();
-            const url: string =
-                process.env.API_URL || 'http://localhost:5000/api/list';
+            const url: string = process.env.REACT_APP_API_URL
+                ? `${process.env.REACT_APP_API_URL}/api/list`
+                : 'http://localhost:5000/api/list';
 
             const call: Icall = new Http(url);
             this.instance = new Services(call, cookies);

@@ -15,97 +15,11 @@
             border-radius: $border-radius-normal;
             position: relative;
 
-            &-header {
-                width: 100%;
-                height: 10%;
-                background-color: map-get($map: $colors, $key: main-violet);
-                border-radius: $border-radius-normal;
-                border-bottom-left-radius: 0;
-                border-bottom-right-radius: 0;
-                position: relative;
+            @include todoForm;
 
-                @include flex-align-center;
-
-                $width: 80%;
-
-                &-title {
-                    width: 100% - $width;
-                    height: 100%;
-                    @include flex-center;
-                    position: relative;
-
-                    &-h2 {
-                        font-weight: bolder;
-                        font-size: 1.5em;
-                        text-align: center;
-                        text-transform: uppercase;
-                    }
-
-                    &-number {
-                        $main-color: map-get(
-                            $map: $colors,
-                            $key: main-red,
-                        );
-                        $main-color-transparent: map-get(
-                            $map: $colors,
-                            $key: main-red-transparent,
-                        );
-                        position: relative;
-                        @include flex-center;
-                        background-color: $main-color;
-                        width: 30px;
-                        height: 30px;
-                        border-radius: $border-radius-high;
-                        margin-left: (100% - $width)/2;
-
-                        @include pseudo-text(
-                            'Todos',
-                            $main-color-transparent,
-                            -60%,
-                            -110%
-                        );
-
-                        &:hover ::after {
-                            font-size: 1em !important;
-                        }
-
-                        p {
-                            font-weight: bolder;
-                            color: white;
-                            font-size: 1.2em;
-                        }
-                    }
-                }
-
-                &-form {
-                    width: $width;
-                    height: 100%;
-                    @include flex-align-center;
-                    position: relative;
-
-                    .input-group {
-                        width: 90%;
-
-                        .input-todoForm {
-                            width: 100%;
-                            background-color: map-get(
-                                $map: $colors,
-                                $key: main-blue-dark-transparent
-                            );
-                        }
-                    }
-                    .btn.btn-add {
-                        position: absolute;
-                        right: 2%;
-                    }
-
-                    .errors {
-                        position: absolute;
-                        right: (100% - $width)/3;
-                        bottom: -90%;
-                    }
-                }
-            }
+	    &-body{
+		@include todoComponent;
+	    }
         }
     }
 }

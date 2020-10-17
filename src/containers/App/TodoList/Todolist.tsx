@@ -3,6 +3,7 @@ import Header from '../../../components/NavBar/Header';
 import TodoForm from '../../../components/TodoList/TodoForm';
 import { TodoList } from '../../../models/Imodels';
 import Services from '../../../services/tasks/tasks';
+import TodoComponent from '../../../components/TodoList/TodoComponet';
 
 class Todolist extends React.Component<ITodoListProps, ITodoListState> {
     constructor(props: ITodoListProps) {
@@ -10,7 +11,7 @@ class Todolist extends React.Component<ITodoListProps, ITodoListState> {
         this.state = {
             loading: false,
             todos: [],
-            todosNum:this.state.todos.length,   
+            todosNum: 0,
         };
     }
 
@@ -23,23 +24,34 @@ class Todolist extends React.Component<ITodoListProps, ITodoListState> {
 
         const todoList = await services.getTodos();
         this.setState({ todos: todoList });
+        this.setState({ todosNum: todoList.length });
+
+        this.setState({ loading: false });
+        console.log(todoList);
     }
 
     addTodo = async (): Promise<void> => {
-        const services: Services = Services.getInstance();
-
-        const todoList = await services.getTodos();
-        this.setState({ todos: todoList });
+        console.log('adding');
+        //await setTimeout(async () => {
+        await this.componentDidMount();
+        //}, 1000);
     };
 
     render() {
+        let todos: JSX.Element[] = this.state.todos.map((todo) => {
+            return <TodoComponent key={todo.id} todo={todo} />;
+        });
+
         return (
             <>
                 <Header page="home" />
                 <section>
                     <article className="todolist">
-                        <TodoForm addToList={this.addTodo} todosNumber={1} />
-                        <main className="todolist-body"></main>
+                        <TodoForm
+                            addToList={this.addTodo}
+                            todosNumber={this.state.todosNum}
+                        />
+                        <main className="todolist-body">{todos}</main>
                     </article>
                 </section>
             </>
@@ -50,7 +62,7 @@ class Todolist extends React.Component<ITodoListProps, ITodoListState> {
 interface ITodoListState {
     loading: boolean;
     todos: TodoList;
-    todosNum:number;
+    todosNum: number;
 }
 interface ITodoListProps {}
 

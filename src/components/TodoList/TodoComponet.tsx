@@ -7,7 +7,7 @@ class TodoComponet extends React.Component<
 > {
     constructor(props: ITodoComponentProps) {
         super(props);
-        this.state = { value: this.props.todo };
+	this.state = { value: this.props.todo };
     }
 
     render() {
@@ -17,7 +17,7 @@ class TodoComponet extends React.Component<
                     <p>{this.state.value.todo}</p>
                 </div>
                 <div className="todolist-body-todo-date">
-                    <p>{this.state.value.create_at}</p>
+                    <p>{this.state.value.created_at}</p>
                 </div>
             </div>
         );

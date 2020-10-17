@@ -5,7 +5,7 @@
 export interface Itodo {
     id: number;
     todo: string;
-    create_at: Date;
+    created_at: Date;
     username: string;
 }
 export type TodoList = Array<Itodo>;

@@ -20,7 +20,7 @@ class TodoForm extends React.Component<ITodoformProps, ITodoformState> {
             return;
         }
         const services: Services = Services.getInstance();
-        const success = services.addTodo(this.state.value);
+        const success = await services.addTodo(this.state.value);
         if (!success) {
             return;
         }

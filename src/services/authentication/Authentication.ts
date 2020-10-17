@@ -19,8 +19,9 @@ class Authentication {
     public static getInstance(): Authentication {
         if (!Authentication.instance) {
             const cookies: Cookies = new Cookies();
-            const url: string =
-                process.env.API_URL || 'http://localhost:5000/api/auth';
+            const url: string = process.env.REACT_APP_API_URL
+                ? `${process.env.REACT_APP_API_URL}/api/auth`
+                : 'http://localhost:5000/api/auth';
 
             const call: Icall = new Http(url);
             this.instance = new Authentication(call, cookies);
