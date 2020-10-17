@@ -2,7 +2,7 @@
 	"name": "client",
 	"version": "0.1.0",
 	"private": true,
-	"homepage": "https://github.com/chgara/fundacionGGGonprogress",
+	"homepage": "https://github.com/chgara/chgara-TODO-RestApi",
 	"dependencies": {
 		"@fortawesome/fontawesome-svg-core": "^1.2.28",
 		"@fortawesome/free-solid-svg-icons": "^5.13.0",
@@ -40,11 +40,7 @@
 		"extends": "react-app"
 	},
 	"browserslist": {
-		"production": [
-			">0.2%",
-			"not dead",
-			"not op_mini all"
-		],
+		"production": [">0.2%", "not dead", "not op_mini all"],
 		"development": [
 			"last 1 chrome version",
 			"last 1 firefox version",
