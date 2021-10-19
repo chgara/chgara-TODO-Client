@@ -1,4 +1,5 @@
 # A typescript react client todo list
+<img src="https://i.ibb.co/Tq3btqF/todo.png" alt="Todo Image" />
 
 This client is made in react and sass for my [rest api](https://github.com/chgara/chgara-TODO-RestApi)
 
